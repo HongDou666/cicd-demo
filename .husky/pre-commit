@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# lint-staged 的作用是只对 git add 缓存区的代码进行 eslint 代码规范校验。这样就避免了全局校验的问题。你修改了上面代码，你就提交了什么代码，其他代码不做 eslint 校验。
+# 钩子配置 : npx husky add .husky/pre-commit "pnpm run lint:lint-staged"
+pnpm run lint:lint-staged

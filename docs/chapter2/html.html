@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Animal {
+        name
+        //  constructor (name) {
+        //   console.log(11);
+        //   this.name = name
+        // }
+
+        run(distance) {
+          console.log(`${this.name} run ${distance}m`)
+        }
+      }
+
+      class Person extends Animal {
+        age = 18
+        sex = '男'
+
+        run(distance) {
+          console.log('Person jumping...')
+          super.run(distance)
+        }
+      }
+
+      class Student extends Person {
+        run(distance) {
+          console.log('Student jumping...')
+
+          console.log(this.sex) // 子类能看到父类中受保护的成员
+          // console.log(this.age) //  子类看不到父类中私有的成员
+
+          super.run(distance)
+        }
+      }
+
+      console.log(new Person('abc').name) // 公开的可见
+      // console.log(new Person('abc').sex) // 受保护的不可见
+      // console.log(new Person('abc').age) //  私有的不可见
+    </script>
+  </body>
+</html>

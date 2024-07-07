@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/svg+xml" href="/vite-icon.svg" />
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <!--  PC端 <meta name="viewport" content="width=device-width, initial-scale=1.0" />  -->
+    <!-- 
+      移动端
+      iPhone X 等机型底部存在底部指示条，指示条的操作区域与页面底部存在重合，容易导致用户误操作，因此我们需要针对这些机型进行安全区适配。Vant 中部分组件提供了 safe-area-inset-top 或 safe-area-inset-bottom 属性，设置该属性后，即可在对应的机型上开启适配, 在 head 标签中添加 meta 标签，并设置 viewport-fit=cover 值 
+
+      name="viewport" : 视口标签
+      width=device-width： 视口宽度等于设备宽度
+      initial-scale=1.0： 初始缩放比例1.0
+      maximum-scale=1.0： 最大缩放比例1.0
+      minimum-scale=1.0： 最小缩放比例1.0
+      viewport-fit=cover： 视口适配模式，cover 代表页面宽度覆盖整个屏幕，不出现滚动条
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, viewport-fit=cover" />
+
+    <!-- 网站标题 -->
+    <title>Vite-晚风</title>
+
+    <!-- 打包性能优化使用CDN 避免第三方依赖打包到chunk 手动在打包后的index。html添加CDN （利用插件自动添加CDN => vite-plugin-html） -->
+    <!-- <script src="https://unpkg.com/vue@3.2.45/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/vue-demi@0.13.11"></script>
+    <script src="https://unpkg.com/vue-router@4.1.6"></script>
+    <script src="https://unpkg.com/element-plus@2.3.3/dist/index.full.js"></script>
+    <script type="module" crossorigin src="/assets/index-c24c670c.js"></script> -->
+
+    <!-- 测试文件 -->
+    <script type="module" src="/src/about.js"></script>
+    <script type="module" src="/src/about-test.ts"></script>
+
+    <!-- 百度地图 (全局引入)（但vue项目中仅某一两个页面需要用到百度地图，所以不想在 index.html 中全局引用） -->
+    <!-- <script type="text/javascript" src="https://api.map.baidu.com/api?v=3.0&ak=n9xkrxdn7uiZEjKANlZA1PJp9C8SHXIb"></script> -->
+
+    <!--  2. cdn外链引入配置（形式2） -->
+    <!-- 使用CDN的CSS文件 -->
+    <% for (const i of cdnCss) { %>
+    <link href="<%= i %>" rel="stylesheet" />
+    <% } %>
+    <!-- 使用CDN的JS文件 -->
+    <% for (const i of cdnJs) { %>
+    <script src="<%= i %>" defer></script>
+    <% } %>
+  </head>
+  <body>
+    <!-- Vue 挂载节点 -->
+    <div id="app"></div>
+
+    <!-- Vite 还支持在 HTML 文件中替换环境变量，例如： -->
+    <!-- 
+      <h1>Vite is running in %MODE%</h1>
+      <h1>Using data from %VITE_APP_TITLE%</h1> 
+    -->
+
+    <!-- 自适应文件 - flexible -->
+    <!-- <script src="/public/flexible.js"></script> -->
+
+    <!-- 页面刷新时提示信息加载 -->
+    <script src="/loading.js"></script>
+
+    <!-- 引入main.ts 入口文件 -->
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,3 @@
+# 不需要格式化的文件
+/dist/*
+/node_modules/**

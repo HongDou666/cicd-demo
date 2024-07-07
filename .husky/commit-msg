@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# 配置 commit-msg 钩子 运行 commitlint
+# 钩子配置 : npx husky add .husky/commit-msg "npx --no-install commitlint --edit $1"
+npx --no-install commitlint --edit 

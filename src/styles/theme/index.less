@@ -1,0 +1,26 @@
+// 1. light主题（默认亮色主题）
+
+/*
+:root {}  ===  html{}
+*/
+:root,
+html[data-theme='light']:root {
+  // 背景主色调
+  --backgroud-color: white;
+  // 适配黑色主题的字体色
+  --color-dark-black: black;
+  --color-dark-gray: gray;
+  --bg-color: #299;
+  --font-color: #fff;
+}
+
+// 2. dark主题
+html[data-theme='dark']:root {
+  // 背景主色调
+  --backgroud-color: black;
+  // 适配黑色主题的字体色
+  --color-dark-black: white;
+  --color-dark-gray: white;
+  --bg-color: #102128;
+  --font-color: #fff;
+}
