@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>model</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.min.js"></script>
+
+    <script src="../js/echarts.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js'></script>
+    <script src='../js/echarts-wordcloud.js'></script>
+    
+   
+    
+    
+    <style>
+        #demo{
+            overflow:hidden;
+            width: auto;
+            height: 2.5rem;
+            margin-left: .625rem;
+            margin-top: .125rem;
+        }
+        #demo a {
+            width: 100%;
+            font-family: "微软雅黑"arial "arial black";
+            overflow: hidden;
+            font: 14px/20px tahoma;
+            display: block;
+            text-decoration: none;
+            margin: 2px;
+            color: #FFFFFF;
+            padding-left: 2px;
+            text-align: left;
+        }
+
+        #demo a:hover {
+            color: #ff6600;
+        }
+        header .img2{
+        	top: -50%;
+        	left: 35%;
+        	margin-top: -60px;
+        	width: 400px;
+        	height: 300px;
+        	position: absolute;
+        }
+        .canvas{position: absolute; width:100%; left: 0; top: 0; height: 125%; z-index: -1;}
+        .loading{position:fixed; left:0; top:0; font-size:18px; z-index:100000000;width:100%; height:100%; background:#1a1a1c; text-align:center;}
+        .loadbox{position:absolute; width:160px;height:150px; color: #aaa; left:50%; top:50%; margin-top:-100px; margin-left:-75px;}
+		.loadbox img{ margin:10px auto; display:block; width:40px;}
+    </style>
+    
+    	<script>
+			$(window).load(function(){  
+		             $(".loading").fadeOut()
+		            })  
+					
+		/****/
+		$(document).ready(function(){
+			var loa=$(window).width()
+			$("html").css({fontSize:loa/24})
+			$(window).resize(function(){
+				var loa=$(window).width()
+			 $("html").css({fontSize:loa/24})
+		});
+			});
+		</script>
+    
+    
+</head>
+
+<body>
+    <!-- 布局左，中，右
+    左三，右三中间是主体
+    -->
+<!--3Dbg-->
+<div class="canvas" style="opacity: .2">
+	<iframe frameborder="0" src="../js/index.html" style="width: 100%; height: 100%"></iframe>
+</div>
+<!--loading-->
+<div class="loading">
+  <div class="loadbox"> <img src="../imgs/loading.gif"> 页面加载中... </div>
+</div>
+    <header>
+    	
+        <h1>xxx数据报告</h1>
+        <img style="margin-top: -50px;" width="380" src="../imgs/ksh31.png"/>
+        <img class="img2" src="../imgs/head.gif"/>
+        <div class="showTime"></div>
+
+        <!-- currentTime -->
+
+        <script>
+            setInterval(function () {
+                fnDate();
+            }, 1000);
+
+            //js 获取当前时间
+            function fnDate() {
+                var oDiv = document.querySelector(".showTime");
+                var date = new Date();
+                var year = date.getFullYear();
+                var month = date.getMonth();
+                var data = date.getDate();
+                var hours = date.getHours();
+                var minute = date.getMinutes();
+                var second = date.getSeconds();
+                var time = year + "-" + fnW((month + 1)) + "-" + fnW(data) + " " + fnW(hours) + ":" + fnW(minute) +
+                    ":" + fnW(second);
+                var a = new Array("日", "一", "二", "三", "四", "五", "六");
+                var week = new Date().getDay();
+                var str = "星期" + a[week];
+                oDiv.innerHTML = "当前时间为:" + time + "　" + str;
+            }
+            //补位 当某个字段不是两位数时补0
+            function fnW(str) {
+                return str > 9 ? str : "0" + str;
+            }
+        </script>
+    </header>
+
+    <section class="mainbox" style="z-index: 2;">
+        <div class="column">
+            <div class="panel bar">
+                <h2>文理科分数线变化</h2>
+                <div class="chart"></div>
+                <div class="panel-foot"></div>
+            </div>
+            <div class="panel pie1">
+                <h2>男女比例</h2>
+                <div class="chart"></div>
+                <div class="panel-foot"></div>
+            </div>
+            <div class="panel line1-bar">
+                <h2>各省上线率</h2>
+                <div class="chart"></div>
+                <div class="panel-foot"></div>
+            </div>
+
+        </div>
+
+        <div class="column">
+            <div class="no">
+                <p>进口货量&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出口货量</p>
+                <h1>789943 &nbsp;&nbsp;&nbsp;594353</h1>
+                <div class="no-foot"></div>
+            </div>
+            <div class="map china">
+                <div class="map-foot"></div>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="panel bar1">
+                <h2>上线人数对比</h2>
+                <div class="chart"></div>
+                <div class="panel-foot"></div>
+            </div>
+            <div class="panel pie2">
+                <h2>各科占比</h2>
+                <div class="chart"></div>
+                <div class="panel-foot"></div>
+            </div>
+
+            <div class="panel line">
+                <h2>热点</h2>
+                <div class="chart" id="demo">
+                    <div id="demo1">
+                        <a href="https://www.baidu.com/s?wd=">今年全国高考的报考人数为1078万，比去年增加7万。</a>
+                        <a href="https://www.baidu.com/s?wd=">北京外国语大学、华南理工大学、南方科技大学</a>
+                        <a href="https://www.baidu.com/s?wd=">各地高考历年分数线(批次线)</a>
+                        <a href="https://www.baidu.com/s?wd=">2021高考难度与往年相比怎么样？</a>
+                        <a href="https://www.baidu.com/s?wd=">上海市、浙江省将执行新高考政策</a>
+                        <a href="https://www.baidu.com/s?wd=">北京、天津、海南、山东等4个省份，继续新高考试点</a>
+                        <a href="https://www.baidu.com/s?wd=">全国抗疫斗争取得重大战略成果</a>
+                        <a href="https://www.baidu.com/s?wd=">在更高起点上推进改革开放</a>
+                        <a href="https://www.baidu.com/s?wd=">高考作文，永远的全民顶流</a>
+                        <a href="https://www.baidu.com/s?wd=">上午语文游刃有余，下午数学抓耳挠腮</a>
+                    </div>
+                    <div id="demo2"></div>
+                </div>
+                <script>
+                    var speed = 80
+                    var demo = document.getElementById("demo");
+                    var demo2 = document.getElementById("demo2");
+                    var demo1 = document.getElementById("demo1");
+                    demo2.innerHTML = demo1.innerHTML
+
+                    function Marquee() {
+                        if (demo2.offsetTop - demo.scrollTop <= 0)
+                            demo.scrollTop -= demo1.offsetHeight
+                        else {
+                            demo.scrollTop++
+                        }
+                    }
+                    var MyMar = setInterval(Marquee, speed)
+                    demo.οnmοuseοver = function () {
+                        clearInterval(MyMar)
+                    }
+                    demo.οnmοuseοut = function () {
+                        MyMar = setInterval(Marquee, speed)
+                    }
+                </script> 
+                
+                <div class="panel-foot"></div>
+            </div>
+           
+        </div>
+    </div>
+    </section>
+    <script src="../js/flexible.js"></script>
+
+    <script src="../js/visual.js"></script>
+   
+</body>
+
+</html>

@@ -1,0 +1,307 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  body {
+    line-height: 1.15;
+    color: white;
+    max-width: 1920px;
+    max-height: 1080px;
+    /* background: linear-gradient(to bottom,rgb(54, 7, 82),rgb(116, 15, 126)); */
+   background-image: url(../imgs/bg01.png);
+   background-repeat: no-repeat;
+   background-size: cover;
+    /*background-color: black;*/
+  }
+  img:hover {
+    cursor: pointer;
+  }
+  header {
+    /*background: url(../imgs/ksh33.png) no-repeat;*/
+    background-size: 100% 100%;
+    position: relative;
+    height: 1.25rem;
+  }
+  header h1 {
+    text-align: center;
+    color: #ffffff;
+
+    font-size: 0.375rem;
+    line-height: 1rem;
+  }
+  header .showTime {
+    position: absolute;
+    right: 0.375rem;
+    top: 0;
+    font-size: 0.25rem;
+    line-height: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .mainbox {
+    display: flex;
+    min-width: 1024px;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0.125rem 0.125rem 0;
+    animation: move1 5s linear ease-in-out;
+  }
+  @-webkit-keyframes move1 {
+    from {
+      opacity: 0;
+      transform: translateY(-400px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @-moz-keyframes move1 {
+    from {
+      opacity: 0;
+      transform: translateY(-400px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes move1 {
+    from {
+      opacity: 0;
+      transform: translateY(-400px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .mainbox .column {
+    flex: 3;
+    animation: move1 5s linear ease-in-out;
+  }
+  @keyframes move1 {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .mainbox .column:nth-child(2) {
+    flex: 5;
+  }
+  .mainbox .panel {
+    position: relative;
+    height: 3.875rem;
+    border: 1px solid rgba(25, 186, 139, 0.17);
+    padding: 0 0.1875rem 0.5rem;
+    margin-bottom: 0.1875rem;
+    background-color: rgba(255, 255, 255, 0.04);
+    animation: move1 5s linear ease-in-out;
+  }
+  @keyframes move1 {
+    from {
+      opacity: 0;
+      transform: translateY(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .mainbox .panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+  .mainbox .panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  }
+  .mainbox .panel .panel-foot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .mainbox .panel .panel-foot::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+  .mainbox .panel .panel-foot::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  }
+  .mainbox .panel h2 {
+    text-align: center;
+    color: #fff;
+    height: 0.6rem;
+    font-size: 16px;
+    line-height: 0.6rem;
+    font-weight: 400;
+  }
+  .mainbox .panel .chart {
+    margin-top: -0.25rem;
+    height: 3rem;
+  }
+  .no {
+    height: 1.25rem;
+    margin: 0 auto;
+    width: 7.5rem;
+    font-size: 0.3125rem;
+    text-align: center;
+    font-weight: 400;
+    letter-spacing: 0.125rem;
+    line-height: 0.625rem;
+    color: darkgoldenrod;
+    position: relative;
+  }
+  .no p {
+    color: #fff;
+  }
+  .no h1{
+    margin-top: -0.25rem;
+  }
+  .no::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+  .no::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  }
+  .no .no-foot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .no .no-foot::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+  .no .no-foot::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  }
+  .map {
+    position: relative;
+    height: 10.125rem;
+    overflow: hidden;
+    margin-top: .25rem;
+   
+  }
+  /* .map::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 2%;
+    height: 10px;
+    width: 10px;
+    border-top: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  } */
+  .map::after{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2%;
+    height: 10px;
+    width: 10px;
+    border-top: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+  .map .map-foot{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .map .map-foot::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 2%;
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-right: 2px solid #02a6b5;
+  }
+  /* .map .map-foot::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    height: 10px;
+    width: 10px;
+    border-bottom: 2px solid #02a6b5;
+    border-left: 2px solid #02a6b5;
+  }
+   */
+  @keyframes rotate1 {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  @keyframes rotate2 {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+      transform: translate(-50%, -50%) rotate(-360deg);
+    }
+  }
+  
