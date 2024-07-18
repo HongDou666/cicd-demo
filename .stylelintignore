@@ -1,9 +1,0 @@
-# 忽略文件，让 StyleLint 不对这些文件进行校验
-/dist/*
-/public/*
-public/*
-/mock/*
-/node_modules/*
-/plop-templates/*
-/types/*
-/micro-vue2
